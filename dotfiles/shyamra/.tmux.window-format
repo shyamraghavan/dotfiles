@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd "$1"
+
+function window_name() {
+    local IS_GIT
+    local GIT_ROOT
+
+    git rev-parse --is-inside-git-dir 2>/dev/null >/dev/null
+
+    if [ $? -eq 0 ]
+    then
+        GIT_ROOT="$(basename `git rev-parse --show-toplevel`)"
+        GIT_ROOT="$GIT_ROOT:$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)"
+    else
+        GIT_ROOT="$(basename `pwd`)"
+    fi
+
+    echo "$GIT_ROOT"
+}
+
+window_name

@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+OKTA_PASSWORD=`bw get password zillow.okta.com`
+OKTA_USERNAME=shyamra
+
+if [[ -z $OKTA_PASSWORD ]]
+then
+  echo "Please set OKTA_PASSWORD"
+  exit 1
+fi
+
+if [[ -z $OKTA_USERNAME ]]
+then
+  echo "Please set OKTA_USERNAME"
+  exit 1
+fi
+
+echo -e "${OKTA_PASSWORD}\n${OKTA_PASSWORD}\n2" | sudo -S openconnect -v -u $OKTA_USERNAME --passwd-on-stdin sea.vpn.zillowgroup.com

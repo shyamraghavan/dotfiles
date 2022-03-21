@@ -1,0 +1,11 @@
+[core]
+	excludesfile = /Users/shyamra/.gitignore_global
+	editor = vim
+[diff]
+	tool = vimdiff
+[user]
+	name = Shyam Raghavan
+	email = shyamra@zillowgroup.com
+[alias]
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
+    branches = for-each-ref --count=30 --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
