@@ -2,7 +2,7 @@
 set -e
 
 OKTA_PASSWORD=`bw get password zillow.okta.com`
-OKTA_USERNAME=shyamra
+OKTA_USERNAME=$USERNAME
 
 if [[ -z $OKTA_PASSWORD ]]
 then
