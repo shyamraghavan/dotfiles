@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BOLD="\033[0;1m"
-Red="\033[0;31m"
+RED="\033[0;31m"
 END="\033[0m"
 
 echo -e "${BOLD}Setting up java development with Intellij...${END}"
